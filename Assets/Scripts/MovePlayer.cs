@@ -2,36 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Transform))]
+
 public class MovePlayer : MonoBehaviour
 {
+    [SerializeField] private float _velcotiy = 1;
+    [SerializeField] private float _jumpforse = 1;
 
     private Transform _transform;
-    private Vector3 _playerPos;
-    private float _velcotiy= 1;
+ 
+
 
     void Start()
     {
         _transform = GetComponent<Transform>();
+        
     }
 
    
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.W)) 
         {
-            transform.position += Vector3.forward * _velcotiy * Time.deltaTime;
+            transform.position += Vector3.up * _velcotiy * _jumpforse * Time.deltaTime;
         }
-        else if(Input.GetKey(KeyCode.A))
+
+        if(Input.GetKey(KeyCode.A))
         {
             transform.position += Vector3.left * _velcotiy * Time.deltaTime;
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-         
+            //transform.Rotate(0, 180, 0);
         }
         else if(Input.GetKey(KeyCode.D))
         {
             transform.position -= Vector3.left * _velcotiy * Time.deltaTime;
+            //transform.Rotate(0, -180, 0);
         }
     }
 }

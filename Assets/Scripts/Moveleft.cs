@@ -2,39 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Transform))]
+
 public class Moveleft : MonoBehaviour
 {
     [SerializeField] float _speed = 1;
+
     private Transform _transform;
-    private bool t = false;
+    private bool _isLeft = true;
+
     void Start()
     {
         _transform = GetComponent<Transform>();
-        _speed = 1;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
-
-        transform.position -= Vector3.left * _speed * Time.deltaTime;
-
-
-        if (transform.position.x >= -6)
+        if (_isLeft)
         {
-            
-            _speed *= 1;
+            transform.position -= Vector3.left * _speed * Time.deltaTime;
+            Debug.Log("1");
+        }
+        else if (!_isLeft) 
+        {
+            transform.position += Vector3.left * _speed * Time.deltaTime;
+            Debug.Log("2");
+        }
+           
+
+        if (transform.localPosition.x >= 5 & _isLeft == true)
+        {
+            _isLeft = false;
+        }
+        else if(transform.localPosition.x <= -5 & _isLeft == false) 
+        {
+            _isLeft = true;
         }
 
-        if(transform.position.x >= 6) 
-        {
-            _speed *= -1;
-        }
 
-
-
-
-
+        Debug.Log(transform.position.x);
     }
 }
