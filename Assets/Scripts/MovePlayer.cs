@@ -10,13 +10,16 @@ public class MovePlayer : MonoBehaviour
     [SerializeField] private float _jumpforse = 1;
 
     private Transform _transform;
+
+    [SerializeField] bool _isLeft = false;
  
 
 
     void Start()
     {
         _transform = GetComponent<Transform>();
-        
+        transform.Rotate(0, 0, 0);
+
     }
 
    
@@ -29,13 +32,30 @@ public class MovePlayer : MonoBehaviour
 
         if(Input.GetKey(KeyCode.A))
         {
+            if (_isLeft != true)
+            {
+                transform.Rotate(0, 180, 0);
+                _isLeft = true;
+            }
+
             transform.position += Vector3.left * _velcotiy * Time.deltaTime;
-            //transform.Rotate(0, 180, 0);
+           
+
         }
         else if(Input.GetKey(KeyCode.D))
         {
+            if(_isLeft != false)
+            {
+                transform.Rotate(0, -180, 0);
+                _isLeft = false;
+            }
+
+            
+            
             transform.position -= Vector3.left * _velcotiy * Time.deltaTime;
-            //transform.Rotate(0, -180, 0);
+
+            
         }
+
     }
 }
