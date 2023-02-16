@@ -10,18 +10,16 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField] private GameObject rightFlag;
 
     [SerializeField] float _speed = 1;
-    [SerializeField] private bool _isLeft = false;
+
+    [SerializeField] private bool _isLeft;
 
     private Transform _transform;
-   
 
-    void Start()
+    private void Start()
     {
         _transform = GetComponent<Transform>();
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
 
         if (_isLeft)

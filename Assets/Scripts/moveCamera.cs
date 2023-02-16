@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class moveCamera : MonoBehaviour
 {
@@ -9,17 +9,24 @@ public class moveCamera : MonoBehaviour
 
     private Transform _transfrom;
 
-    void Start()
+    private void Start()
     {
+        //GameObject g =  GameObject.FindFirstObjectByType<MovePlayer>();
         _player = GameObject.FindGameObjectWithTag("Player");
         _transfrom = GetComponent<Transform>();
     }
 
    
-    void Update()
+    private void Update()
     {
-        Vector3 vector = new Vector3(_player.transform.position.x, _player.transform.position.y,-10);
-
-        _transfrom.position = vector;
+        if(_player == null)
+        {
+            _player = GameObject.FindGameObjectWithTag("Player");
+        }
+            
+        _transfrom.position = new Vector3(_player.transform.position.x, _player.transform.position.y, -10);
     }
+
+
+
 }
