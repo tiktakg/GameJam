@@ -312,11 +312,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9139436268497875565, guid: 038579bcf85c26148b0e399a2b0eeee8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -39.56
+      value: -39.9
       objectReference: {fileID: 0}
     - target: {fileID: 9139436268497875565, guid: 038579bcf85c26148b0e399a2b0eeee8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.313
+      value: -3.78
       objectReference: {fileID: 0}
     - target: {fileID: 9139436268497875565, guid: 038579bcf85c26148b0e399a2b0eeee8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -24837,7 +24837,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1979372316}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -51.23, y: -3.67, z: 0}
+  m_LocalPosition: {x: -46.63, y: -1.05, z: 0}
   m_LocalScale: {x: 1.3497761, y: 1.3497761, z: 1.3497761}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24905,8 +24905,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabBullet: {fileID: 0}
   _spawnPointBullet: {fileID: 0}
-  leftFlagPositon: -45
-  rightFlagPositon: -40
+  leftFlagPositon: -46
+  rightFlagPositon: -38
   _speed: 1.18
   _isLeft: 0
 --- !u!1001 &3301323448673869892
@@ -24934,11 +24934,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3301323446713856012, guid: 9a58a8eacd6652943b7a9dd3db142e65, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -44.667
+      value: -52.59
       objectReference: {fileID: 0}
     - target: {fileID: 3301323446713856012, guid: 9a58a8eacd6652943b7a9dd3db142e65, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.443
+      value: -3.76
       objectReference: {fileID: 0}
     - target: {fileID: 3301323446713856012, guid: 9a58a8eacd6652943b7a9dd3db142e65, type: 3}
       propertyPath: m_LocalPosition.z
