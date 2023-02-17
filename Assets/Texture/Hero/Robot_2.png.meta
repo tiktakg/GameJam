@@ -120,10 +120,10 @@ TextureImporter:
       name: Robot_2_0
       rect:
         serializedVersion: 2
-        x: 17
+        x: 12
         y: 0
-        width: 38
-        height: 67
+        width: 40
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,10 +141,10 @@ TextureImporter:
       name: Robot_2_1
       rect:
         serializedVersion: 2
-        x: 86
-        y: 0
-        width: 38
-        height: 67
+        x: 81
+        y: 1
+        width: 42
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +162,10 @@ TextureImporter:
       name: Robot_2_2
       rect:
         serializedVersion: 2
-        x: 155
-        y: 0
-        width: 38
-        height: 68
+        x: 150
+        y: 1
+        width: 42
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,10 +183,10 @@ TextureImporter:
       name: Robot_2_3
       rect:
         serializedVersion: 2
-        x: 224
-        y: 0
-        width: 38
-        height: 69
+        x: 219
+        y: 2
+        width: 42
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,6 +196,27 @@ TextureImporter:
       bones: []
       spriteID: 458f66f16bd98eb4ebd6f111a63e2b1d
       internalID: -1010741746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_2_4
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 3
+        width: 43
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b06eae8a5ea3c8d4991ba24f05886f9a
+      internalID: 1667143919
       vertices: []
       indices: 
       edges: []
@@ -211,6 +232,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Robot_2_4: 1667143919
       Robot_2_0: 1580725351
       Robot_2_1: -418216520
       Robot_2_2: 1492353467
