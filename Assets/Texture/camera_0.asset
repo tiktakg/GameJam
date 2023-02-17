@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: "\u043C\u0430\u043B\u0435\u043D\u044C\u043A\u0438\u0439 \u043A\u0430\u043A\u0442\u0443\u0441
-    \u0432\u0432\u0435\u0440\u0445 \u043A\u043B\u0430\u0434\u0431\u0438\u0449\u04352"
+  m_Name: camera_0
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 9f4ee9bed78f346438210a0adabe15d0, type: 3}
+  m_Sprite: {fileID: 1694932452, guid: 4e8089037f0dd3d48a3ee0931b2efb7f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

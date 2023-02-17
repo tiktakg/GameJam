@@ -4,12 +4,15 @@ using UnityEngine;
 
 [RequireComponent(typeof(Transform))]
 
-public class EnemyPatrol : MonoBehaviour
+public class EnemyScript : MonoBehaviour
 {
-    [SerializeField] private GameObject leftFlag;
-    [SerializeField] private GameObject rightFlag;
+    [SerializeField] private GameObject _prefabBullet;
+    [SerializeField] private GameObject _spawnPointBullet;
 
-    [SerializeField] float _speed = 1;
+    [SerializeField] private float leftFlagPositon;
+    [SerializeField] private float rightFlagPositon;
+
+    [SerializeField] public float _speed = 1;
 
     [SerializeField] private bool _isLeft;
 
@@ -21,7 +24,7 @@ public class EnemyPatrol : MonoBehaviour
     }
     private void Update()
     {
-
+        
         if (_isLeft)
         {
             transform.position -= Vector3.left * _speed * Time.deltaTime;
@@ -32,12 +35,12 @@ public class EnemyPatrol : MonoBehaviour
         }
            
 
-        if ((transform.localPosition.x >= rightFlag.transform.position.x) & _isLeft == true)
+        if ((transform.localPosition.x >= rightFlagPositon) & _isLeft == true)
         {
             _isLeft = false;
             switchSight(_isLeft);
         }
-        else if((transform.localPosition.x <= leftFlag.transform.position.x) & _isLeft == false) 
+        else if((transform.localPosition.x <= leftFlagPositon) & _isLeft == false) 
         {
             _isLeft = true;
             switchSight(_isLeft);
