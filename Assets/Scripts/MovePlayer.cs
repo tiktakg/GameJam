@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class MovePlayer : MonoBehaviour
 {
-    [SerializeField] private PlayerScript _playerObject;
     [SerializeField] private UiSrcipt _uiPanel;
 
     [SerializeField] private float _velcotiy = 1;
@@ -28,7 +27,7 @@ public class MovePlayer : MonoBehaviour
     {
         _transform = GetComponent<Transform>();
         _uiPanel = GameObject.FindFirstObjectByType<UiSrcipt>();
-        _playerObject = GameObject.FindFirstObjectByType<PlayerScript>();
+     
 
 
 
@@ -50,9 +49,9 @@ public class MovePlayer : MonoBehaviour
         Debug.Log(_TimeLifeEnemy);
 
 
-        if ((_TimeLifeEnemy <= -10))
+        if ((_TimeLifeEnemy == -10))
         { 
-           Instantiate(_playerObject,transform);
+           //Instantiate(Resources.Load("Player"));
         }
 
     }
