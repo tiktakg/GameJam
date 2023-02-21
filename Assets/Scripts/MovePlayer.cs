@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class MovePlayer : MonoBehaviour
 {
-    [SerializeField] private PlayerScript _playerObject;
     [SerializeField] private UiSrcipt _uiPanel;
 
     [SerializeField] private float _velcotiy = 1;
@@ -28,9 +27,7 @@ public class MovePlayer : MonoBehaviour
     {
         _transform = GetComponent<Transform>();
         _uiPanel = GameObject.FindFirstObjectByType<UiSrcipt>();
-        _playerObject = GameObject.FindFirstObjectByType<PlayerScript>();
-
-
+     
 
         if (_isLeft)
             transform.Rotate(0, 0, 0);
@@ -45,14 +42,16 @@ public class MovePlayer : MonoBehaviour
         MovePlayere();
 
 
-
         _TimeLifeEnemy -= Time.deltaTime;
         Debug.Log(_TimeLifeEnemy);
 
 
-        if ((_TimeLifeEnemy <= -10))
-        { 
-           Instantiate(_playerObject,transform);
+        if ((_TimeLifeEnemy <= -10)& _velcotiy == 5)
+        {
+            _uiPanel._isPanelTurn = false;
+            Vector3 position = gameObject.transform.position;
+            Destroy(gameObject);
+            Instantiate(Resources.Load("Player"), position, Quaternion.identity);
         }
 
     }

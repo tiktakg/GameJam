@@ -11,19 +11,18 @@ public class moveCamera : MonoBehaviour
 
     private void Start()
     {
-        //GameObject g =  GameObject.FindFirstObjectByType<MovePlayer>();
         _player = GameObject.FindGameObjectWithTag("Player");
         _transfrom = GetComponent<Transform>();
     }
 
-   
+
     private void Update()
     {
-        if(_player == null)
+        if (_player == null)
         {
             _player = GameObject.FindGameObjectWithTag("Player");
         }
-            
+
         _transfrom.position = new Vector3(_player.transform.position.x, _player.transform.position.y, -10);
     }
 
