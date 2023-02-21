@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class ShotScript : MonoBehaviour
 {
-    [SerializeField] private GameObject _prefabBullet;
-    [SerializeField] private GameObject _spawnPointBullet;
-    [SerializeField] private bool _isHaveGun = false;
+    [SerializeField] public GameObject _prefabBullet;
+    [SerializeField] public GameObject _spawnPointBullet;
+    [SerializeField] public bool _isHaveGun = false;
 
     public int _spawnBullet;
  
    
     void Update()
     {
-        if (Input.GetMouseButtonUp(0) & _spawnBullet < 5)
+        if (Input.GetMouseButtonUp(0) & _spawnBullet < 10)
         {
             GameObject bullet = Instantiate(_prefabBullet);
             bullet.transform.localPosition = _spawnPointBullet.transform.position;

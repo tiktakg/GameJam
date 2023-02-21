@@ -27,7 +27,8 @@ public class MovePlayer : MonoBehaviour
     {
         _transform = GetComponent<Transform>();
         _uiPanel = GameObject.FindFirstObjectByType<UiSrcipt>();
-     
+
+        _isLeft = true;
 
         if (_isLeft)
             transform.Rotate(0, 0, 0);
@@ -43,10 +44,9 @@ public class MovePlayer : MonoBehaviour
 
 
         _TimeLifeEnemy -= Time.deltaTime;
-        Debug.Log(_TimeLifeEnemy);
 
 
-        if ((_TimeLifeEnemy <= -10)& _velcotiy == 5)
+        if ((_TimeLifeEnemy <= -20)& _velcotiy == 5)
         {
             _uiPanel._isPanelTurn = false;
             Vector3 position = gameObject.transform.position;
@@ -66,10 +66,20 @@ public class MovePlayer : MonoBehaviour
     private void setNewPlayer(Collider2D other)
     {
         Destroy(gameObject);
-
         _enemyObject = other.gameObject;
-        _enemyObject.gameObject.AddComponent<MovePlayer>()._velcotiy = 5;
-        _enemyObject.gameObject.AddComponent<ShotScript>();
+
+        ShotScript _shotScript = _enemyObject.gameObject.AddComponent<ShotScript>();
+        MovePlayer _movePlayer = _enemyObject.gameObject.AddComponent<MovePlayer>();
+
+        EnemyScript enemyScript= _enemyObject.gameObject.gameObject.GetComponent<EnemyScript>();
+
+        _shotScript._prefabBullet = enemyScript._prefabBullet;
+        _shotScript._spawnPointBullet = enemyScript._spawnPointBullet;
+
+        _movePlayer._velcotiy = 5;
+
+
+
         _enemyObject.tag = "Player";
         _enemyObject.gameObject.GetComponent<EnemyScript>().enabled = false;
 
