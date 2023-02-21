@@ -29,8 +29,6 @@ public class MovePlayer : MonoBehaviour
         _uiPanel = GameObject.FindFirstObjectByType<UiSrcipt>();
      
 
-
-
         if (_isLeft)
             transform.Rotate(0, 0, 0);
         else if(!_isLeft)
@@ -44,14 +42,16 @@ public class MovePlayer : MonoBehaviour
         MovePlayere();
 
 
-
         _TimeLifeEnemy -= Time.deltaTime;
         Debug.Log(_TimeLifeEnemy);
 
 
-        if ((_TimeLifeEnemy == -10))
-        { 
-           //Instantiate(Resources.Load("Player"));
+        if ((_TimeLifeEnemy <= -10)& _velcotiy == 5)
+        {
+            _uiPanel._isPanelTurn = false;
+            Vector3 position = gameObject.transform.position;
+            Destroy(gameObject);
+            Instantiate(Resources.Load("Player"), position, Quaternion.identity);
         }
 
     }
