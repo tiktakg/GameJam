@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1834645953957891700}
   - component: {fileID: 8290163185704210025}
   - component: {fileID: 3016079816370040436}
-  - component: {fileID: -4042788375439419496}
+  - component: {fileID: -5194220126740585705}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 499f1319fcbcd0949aa979ab4fdf27b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3.11
-  isFlyRight: 0
+  _speed: 3.66
+  isFlyRight: 1
 --- !u!61 &3016079816370040436
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -127,7 +127,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16428375, y: 0.15075922}
   m_EdgeRadius: 0
---- !u!50 &-4042788375439419496
+--- !u!50 &-5194220126740585705
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -136,7 +136,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9202159889078985479}
   m_BodyType: 0
-  m_Simulated: 1
+  m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -147,4 +147,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 4

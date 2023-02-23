@@ -8,7 +8,6 @@ public class EnemyScript : MonoBehaviour
 {
     [SerializeField] public GameObject _prefabBullet;
     [SerializeField] public GameObject _spawnPointBullet;
-    [SerializeField] public GameObject _checkPlayerPoint;
 
     [SerializeField] public float _speed = 1;
     
@@ -16,8 +15,9 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private float rightFlagPositon;
 
 
-    [SerializeField] private bool _isLeft;
+    [SerializeField] public bool _isLeft;
 
+    public bool _isPatrol;
     private Transform _transform;
     private GameObject _player;
 
@@ -28,19 +28,12 @@ public class EnemyScript : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log("p" + _player.transform.localPosition.x);
-        Debug.Log( "c" + _checkPlayerPoint.transform.position.x);;
- 
-        if (_checkPlayerPoint.transform.localPosition.x < _player.transform.localPosition.x)
-        {
-            Debug.Log("1");
-        }
-
-        if (_isLeft)
+        
+        if (_isLeft & _isPatrol == true)
         {
             transform.position -= Vector3.left * _speed * Time.deltaTime;
         }
-        else if (!_isLeft)
+        else if (!_isLeft & _isPatrol == true)
         {
             transform.position += Vector3.left * _speed * Time.deltaTime;
         }
@@ -60,7 +53,7 @@ public class EnemyScript : MonoBehaviour
 
     private void switchSight(bool _isLeft)
     {
-        if (_isLeft)
+        if (!_isLeft)
             transform.Rotate(0,180 , 0);
         else
             transform.Rotate(0, -180, 0);

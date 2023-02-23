@@ -11,14 +11,20 @@ public class ShotScript : MonoBehaviour
     public int _spawnBullet;
  
    
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonUp(0) & _spawnBullet < 10)
         {
-            GameObject bullet = Instantiate(_prefabBullet);
-            bullet.transform.localPosition = _spawnPointBullet.transform.position;
-            _spawnBullet += 1;
+            Shoot();
+
         }
 
     }
+
+    public void Shoot()
+    {
+        GameObject bullet = Instantiate(_prefabBullet, new Vector3(_spawnPointBullet.transform.position.x, _spawnPointBullet.transform.position.y, 0), Quaternion.identity);
+        _spawnBullet += 1;
+    }
+
 }

@@ -102,7 +102,7 @@ MonoBehaviour:
   _uiPanel: {fileID: 0}
   _velcotiy: 1
   _jumpforse: 8
-  _isLeft: 1
+  _isLeft: 0
 --- !u!61 &3301323446713856000
 BoxCollider2D:
   m_ObjectHideFlags: 0

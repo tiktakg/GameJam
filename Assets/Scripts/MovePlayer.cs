@@ -28,7 +28,6 @@ public class MovePlayer : MonoBehaviour
         _transform = GetComponent<Transform>();
         _uiPanel = GameObject.FindFirstObjectByType<UiSrcipt>();
 
-        _isLeft = true;
 
         if (_isLeft)
             transform.Rotate(0, 0, 0);
@@ -67,6 +66,7 @@ public class MovePlayer : MonoBehaviour
     {
         Destroy(gameObject);
         _enemyObject = other.gameObject;
+        _enemyObject.gameObject.GetComponent<EnemyScript>().enabled = false;
 
         ShotScript _shotScript = _enemyObject.gameObject.AddComponent<ShotScript>();
         MovePlayer _movePlayer = _enemyObject.gameObject.AddComponent<MovePlayer>();
@@ -78,10 +78,12 @@ public class MovePlayer : MonoBehaviour
 
         _movePlayer._velcotiy = 5;
 
+        
+
 
 
         _enemyObject.tag = "Player";
-        _enemyObject.gameObject.GetComponent<EnemyScript>().enabled = false;
+      
 
         _uiPanel._isPanelTurn = true;
         _TimeLifeEnemy = 50f;
@@ -93,14 +95,14 @@ public class MovePlayer : MonoBehaviour
         {
             transform.position += Vector3.up * _velcotiy * _jumpforse * Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.S) & transform.localPosition.y > -6)
+        else if (Input.GetKey(KeyCode.S))
         {
             transform.position -= Vector3.up * _velcotiy * _jumpforse * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            if (_isLeft != false)
+            if (_isLeft != false )
             {
                 transform.Rotate(0, 180, 0);
                 _isLeft = false;
@@ -110,7 +112,7 @@ public class MovePlayer : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            if (_isLeft != true)
+            if (_isLeft != true )
             {
                 transform.Rotate(0, -180, 0);
                 _isLeft = true;

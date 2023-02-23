@@ -169,7 +169,7 @@ MonoBehaviour:
   _speed: 2
   leftFlagPositon: 0
   rightFlagPositon: 0
-  _isLeft: 1
+  _isLeft: 0
 --- !u!61 &2297274415527654604
 BoxCollider2D:
   m_ObjectHideFlags: 0
