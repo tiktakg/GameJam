@@ -68,19 +68,18 @@ public class MovePlayer : MonoBehaviour
         _enemyObject = other.gameObject;
         _enemyObject.gameObject.GetComponent<EnemyScript>().enabled = false;
 
-        ShotScript _shotScript = _enemyObject.gameObject.AddComponent<ShotScript>();
+        ShotScript _shotScript = _enemyObject.gameObject.GetComponent<ShotScript>();
         MovePlayer _movePlayer = _enemyObject.gameObject.AddComponent<MovePlayer>();
 
         EnemyScript enemyScript= _enemyObject.gameObject.gameObject.GetComponent<EnemyScript>();
 
         _shotScript._prefabBullet = enemyScript._prefabBullet;
         _shotScript._spawnPointBullet = enemyScript._spawnPointBullet;
+        _shotScript.isShootPlayer = true;
+        _shotScript.enabled = true;
 
         _movePlayer._velcotiy = 5;
-
-        
-
-
+        _movePlayer._isLeft = enemyScript._isLeft;
 
         _enemyObject.tag = "Player";
       

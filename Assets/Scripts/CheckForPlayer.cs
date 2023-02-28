@@ -16,10 +16,12 @@ public class CheckForPlayer : MonoBehaviour
 
     
     private bool _isSeePlayer = false;
+    private bool _isLeft = false;
 
     private float _enemyPostion;
     private float _playerPostion;
     private float _time;
+
 
     private Vector3 _vectorPos = new Vector3();
 
@@ -33,8 +35,10 @@ public class CheckForPlayer : MonoBehaviour
         _shotScript._prefabBullet = _enemyScript._prefabBullet;
         _shotScript._spawnPointBullet = _enemyScript._spawnPointBullet;
 
-    }
+        _shotScript.enabled = false;
 
+    }
+    [SerializeField] public bool shoot;
     private void Update()
     {
         _enemyPostion = _enemyObject.transform.localPosition.x;
@@ -44,23 +48,36 @@ public class CheckForPlayer : MonoBehaviour
 
         _time += Time.deltaTime;
 
+
+       
+
         if (_isSeePlayer)
         {
-
-            if ((_time % 2) < 0.01)
+            if (_enemyPostion > (_playerPostion+0.1) & _isLeft == false)
             {
-                _shotScript.Shoot();
+
+                _isLeft = true;
+                _enemyObject.gameObject.GetComponent<EnemyScript>().switchSight(_isLeft);
+
             }
 
-
-            if (_enemyPostion > _playerPostion)
+            if (_enemyPostion < (_playerPostion  -0.1) & _isLeft == true)
             {
 
-                _vectorPos = new Vector3(_enemyPostion - 0.003f, _enemyObject.transform.localPosition.y, _enemyObject.transform.localPosition.z);
+                _isLeft = false;
+                _enemyObject.gameObject.GetComponent<EnemyScript>().switchSight(_isLeft);
+
             }
-            else if (_enemyPostion < _playerPostion)
+
+            if (_enemyPostion >= _playerPostion)
+            { 
+                _vectorPos = new Vector3(_enemyPostion - 0.001f, _enemyObject.transform.localPosition.y, _enemyObject.transform.localPosition.z);
+            }
+
+            if  (_enemyPostion <= _playerPostion )
             {
-                _vectorPos = new Vector3(_enemyPostion + 0.003f, _enemyObject.transform.localPosition.y, _enemyObject.transform.localPosition.z);
+                _vectorPos = new Vector3(_enemyPostion + 0.001f, _enemyObject.transform.localPosition.y, _enemyObject.transform.localPosition.z);
+
             }
 
             if (_enemyPostion != _playerPostion)
@@ -68,21 +85,34 @@ public class CheckForPlayer : MonoBehaviour
                 _enemyObject.transform.position = _vectorPos;
             }
 
+            if ((_time % 2) < 0.01)
+            {
+
+                _shotScript.isShootPlayer = false;
+                _shotScript.ShootEnemy(!_isLeft);
+            }
+
+
         }
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.tag == "Player")
+        if (other.tag == "Player")
         {
-            _fightWithPlayer(collision, false);
+            _shotScript.enabled = true;
+            _fightWithPlayer(other, false);
         }
+       
     }
+
+    
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
+            _shotScript.enabled = false;
             _fightWithPlayer(collision, true);
         }
     }
@@ -92,5 +122,6 @@ public class CheckForPlayer : MonoBehaviour
         _isSeePlayer = !_seePlayer;
         _enemyObject.gameObject.GetComponent<EnemyScript>()._isPatrol = _seePlayer;
     }
+
 }
 

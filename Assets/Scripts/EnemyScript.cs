@@ -13,9 +13,11 @@ public class EnemyScript : MonoBehaviour
     
     [SerializeField] private float leftFlagPositon;
     [SerializeField] private float rightFlagPositon;
-
+    [SerializeField] public int _helth = 10;
 
     [SerializeField] public bool _isLeft;
+   
+
 
     public bool _isPatrol;
     private Transform _transform;
@@ -28,7 +30,10 @@ public class EnemyScript : MonoBehaviour
     }
     private void Update()
     {
-        
+     
+        if(_helth == 0)
+            Destroy(gameObject);
+
         if (_isLeft & _isPatrol == true)
         {
             transform.position -= Vector3.left * _speed * Time.deltaTime;
@@ -51,9 +56,9 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    private void switchSight(bool _isLeft)
+    public void switchSight(bool _isLeft)
     {
-        if (!_isLeft)
+        if (!_isLeft & _isLeft == true)
             transform.Rotate(0,180 , 0);
         else
             transform.Rotate(0, -180, 0);

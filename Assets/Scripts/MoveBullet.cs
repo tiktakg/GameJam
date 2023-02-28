@@ -8,36 +8,72 @@ public class MoveBullet : MonoBehaviour
 
     [SerializeField] private float _speed;
 
-    public bool isFlyRight = true;
+    public bool isFlyRightPlayer = true;
+    public bool isFlyRightEnemy = true;
+    public bool isShootPlayer;
 
-    private Transform _transform;
+    public Rigidbody2D rb;
+  
     private ShotScript _shotPlayer;
     private MovePlayer _movePlayer;
 
     private float y;
     private void Start()
     {
-        _transform = GetComponent<Transform>();
+        rb = GetComponent<Rigidbody2D>();
+       
+
         _shotPlayer = GameObject.FindFirstObjectByType<ShotScript>();
         _movePlayer = GameObject.FindFirstObjectByType<MovePlayer>();
-        isFlyRight = _movePlayer._isLeft;
-        y = _transform.position.y;
+        isFlyRightPlayer = _movePlayer._isLeft;
+       
+
+
     }
 
 
     private void Update()
     {
-        Vector3 _vector = new Vector3(transform.position.x + _speed * Time.deltaTime, y,0);
-        if(isFlyRight)
-            transform.position = _vector;
-        else if(!isFlyRight)
-            transform.position = _vector;
+
+
+        Vector3 _vector = new Vector3(0, 0, 0);
+        if (isShootPlayer)
+        {
+            if (isFlyRightPlayer)
+                _vector = new Vector3(_speed * Time.deltaTime, 0, 0);
+            else if (!isFlyRightPlayer)
+                _vector = new Vector3(-_speed * Time.deltaTime, 0, 0);
+        }
+        else if (!isShootPlayer)
+        {
+            if (isFlyRightEnemy)
+                _vector = new Vector3( _speed * Time.deltaTime, 0, 0);
+            else if (!isFlyRightEnemy)
+                _vector = new Vector3(-_speed * Time.deltaTime, 0, 0);
+        }
+
+
+        rb.AddForce(_vector);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
-        _shotPlayer._spawnBullet -= 1;
+
+        if (collision.tag == "Ground")
+        {
+            Destroy(gameObject);
+            _shotPlayer._spawnBullet -= 1;
+        }
+
+        if (collision.tag == "Enemy")
+        {
+            Destroy(gameObject);
+            _shotPlayer._spawnBullet -= 1;
+
+            if(isShootPlayer)
+                collision.gameObject.GetComponent<EnemyScript>()._helth--;
+        }
+
 
 
     }
