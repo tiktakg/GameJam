@@ -99,10 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a47c18274256974fb2144dafa534d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uiPanel: {fileID: 0}
+  _uiPanel: {fileID: 6691601888215213918, guid: 4fe56be2d89737343b08ba31b1023307, type: 3}
   _velcotiy: 1
   _jumpforse: 8
-  _isLeft: 0
+  _isLeft: 1
 --- !u!61 &3301323446713856000
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+[RequireComponent(typeof(Transform))]
+[RequireComponent(typeof(Rigidbody2D))]
+
 public class MoveBullet : MonoBehaviour
 {
 
@@ -65,16 +68,19 @@ public class MoveBullet : MonoBehaviour
             _shotPlayer._spawnBullet -= 1;
         }
 
-        if (collision.tag == "Enemy")
+        if (collision.tag == "Enemy" | collision.tag == "Player")
         {
             Destroy(gameObject);
             _shotPlayer._spawnBullet -= 1;
 
             if(isShootPlayer)
                 collision.gameObject.GetComponent<EnemyScript>()._helth--;
+            else if(collision.tag == "Player")
+            { 
+                collision.gameObject.GetComponent<EnemyScript>()._helth--;
+                
+            }
         }
-
-
 
     }
 

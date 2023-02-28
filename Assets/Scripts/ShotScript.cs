@@ -14,7 +14,7 @@ public class ShotScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonUp(0) & _spawnBullet < 10 & isShootPlayer == true)
+        if (Input.GetMouseButtonUp(0)  & isShootPlayer == true)
         {
             ShootPlayer();
         }

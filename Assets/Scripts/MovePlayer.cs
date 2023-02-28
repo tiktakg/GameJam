@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Transform))]
 
@@ -19,15 +20,16 @@ public class MovePlayer : MonoBehaviour
     
 
     private float _TimeLifeEnemy;
-    private float _currentTime;
 
     private bool _isLife = true;
 
     private void Start()
     {
-        _transform = GetComponent<Transform>();
         _uiPanel = GameObject.FindFirstObjectByType<UiSrcipt>();
+        _transform = GetComponent<Transform>();
+        
 
+        _isLeft = true;
 
         if (_isLeft)
             transform.Rotate(0, 0, 0);
@@ -44,10 +46,15 @@ public class MovePlayer : MonoBehaviour
 
         _TimeLifeEnemy -= Time.deltaTime;
 
-
-        if ((_TimeLifeEnemy <= -20)& _velcotiy == 5)
+        if (_uiPanel._isGameTurn == true)
         {
-            _uiPanel._isPanelTurn = false;
+            _uiPanel.TimePanel.value -=Time.deltaTime;
+        }
+
+
+        if ((_TimeLifeEnemy <= -20) & _velcotiy == 5)
+        {
+            _uiPanel._isGameTurn = false;
             Vector3 position = gameObject.transform.position;
             Destroy(gameObject);
             Instantiate(Resources.Load("Player"), position, Quaternion.identity);
@@ -64,29 +71,38 @@ public class MovePlayer : MonoBehaviour
 
     private void setNewPlayer(Collider2D other)
     {
+
         Destroy(gameObject);
+
         _enemyObject = other.gameObject;
-        _enemyObject.gameObject.GetComponent<EnemyScript>().enabled = false;
+        _enemyObject.GetComponent<EnemyScript>()._isPatrol = false;
 
         ShotScript _shotScript = _enemyObject.gameObject.GetComponent<ShotScript>();
+        EnemyScript enemyScript= _enemyObject.gameObject.GetComponent<EnemyScript>();
+        
         MovePlayer _movePlayer = _enemyObject.gameObject.AddComponent<MovePlayer>();
 
-        EnemyScript enemyScript= _enemyObject.gameObject.gameObject.GetComponent<EnemyScript>();
 
         _shotScript._prefabBullet = enemyScript._prefabBullet;
         _shotScript._spawnPointBullet = enemyScript._spawnPointBullet;
+
         _shotScript.isShootPlayer = true;
         _shotScript.enabled = true;
 
         _movePlayer._velcotiy = 5;
-        _movePlayer._isLeft = enemyScript._isLeft;
+
+        _movePlayer._isLeft = true;
+
+        if (!_isLeft)
+            _enemyObject.transform.Rotate(0, 0, 0);
+        else if (_isLeft)
+            _enemyObject.transform.Rotate(0, -180, 0);
 
         _enemyObject.tag = "Player";
       
 
-        _uiPanel._isPanelTurn = true;
-        _TimeLifeEnemy = 50f;
-        _isLife = false;
+        _uiPanel._isGameTurn = true;
+        _TimeLifeEnemy = 10f;
     }
     private void MovePlayere()
     {
@@ -116,6 +132,7 @@ public class MovePlayer : MonoBehaviour
                 transform.Rotate(0, -180, 0);
                 _isLeft = true;
             }
+
             transform.position -= Vector3.left * _velcotiy * Time.deltaTime;
         }
     }
