@@ -7,6 +7,8 @@ public class CheckForPlayer : MonoBehaviour
 {
 
     [SerializeField] private GameObject _enemyObject;
+    [SerializeField] private float _speedFolow;
+    [SerializeField] private bool _IsShootEnemy;
 
 
     private GameObject _playerObject;
@@ -16,7 +18,7 @@ public class CheckForPlayer : MonoBehaviour
 
     
     private bool _isSeePlayer = false;
-    private bool _isLeft = false;
+    [SerializeField]  private bool _isLeft = false;
 
     private float _enemyPostion;
     private float _playerPostion;
@@ -38,7 +40,7 @@ public class CheckForPlayer : MonoBehaviour
         _shotScript.enabled = false;
 
     }
-    [SerializeField] public bool shoot;
+    
     private void Update()
     {
         _enemyPostion = _enemyObject.transform.localPosition.x;
@@ -53,44 +55,38 @@ public class CheckForPlayer : MonoBehaviour
 
         if (_isSeePlayer)
         {
-            if (_enemyPostion > (_playerPostion+0.1) & _isLeft == false)
+            if (_enemyPostion > (_playerPostion + 0.1) & _isLeft == false)
             {
-
                 _isLeft = true;
                 _enemyObject.gameObject.GetComponent<EnemyScript>().switchSight(_isLeft);
-
             }
-
-            if (_enemyPostion < (_playerPostion  -0.1) & _isLeft == true)
+            else if (_enemyPostion < (_playerPostion - 0.1) & _isLeft == true)
             {
 
                 _isLeft = false;
                 _enemyObject.gameObject.GetComponent<EnemyScript>().switchSight(_isLeft);
-
             }
 
-            if (_enemyPostion >= _playerPostion)
-            { 
-                _vectorPos = new Vector3(_enemyPostion - 0.001f, _enemyObject.transform.localPosition.y, _enemyObject.transform.localPosition.z);
-            }
+            _folowForPlayer();
 
-            if  (_enemyPostion <= _playerPostion )
-            {
-                _vectorPos = new Vector3(_enemyPostion + 0.001f, _enemyObject.transform.localPosition.y, _enemyObject.transform.localPosition.z);
 
-            }
+
+
 
             if (_enemyPostion != _playerPostion)
             {
                 _enemyObject.transform.position = _vectorPos;
             }
 
-            if ((_time % 2) < 0.01)
+            if ((_time % 2) < 0.01 & _IsShootEnemy)
             {
 
                 _shotScript.isShootPlayer = false;
                 _shotScript.ShootEnemy(!_isLeft);
             }
+
+
+            _blowUpPlayer();
 
 
         }
@@ -123,5 +119,25 @@ public class CheckForPlayer : MonoBehaviour
         _enemyObject.gameObject.GetComponent<EnemyScript>()._isPatrol = _seePlayer;
     }
 
+
+    private void _folowForPlayer()
+    {
+        if (_enemyPostion >= _playerPostion)
+            _vectorPos = new Vector3(_enemyPostion - _speedFolow, _enemyObject.transform.localPosition.y, _enemyObject.transform.localPosition.z);
+        else if (_enemyPostion <= _playerPostion)
+            _vectorPos = new Vector3(_enemyPostion + _speedFolow, _enemyObject.transform.localPosition.y, _enemyObject.transform.localPosition.z);
+    }
+
+    private void _blowUpPlayer()
+    {
+        if (!_IsShootEnemy)
+        {
+            
+            if (_playerPostion < (_enemyPostion + 0.1) & !_isLeft)
+                Destroy(_enemyObject);
+            else if (_playerPostion > (_enemyPostion - 0.1) & _isLeft)
+                Destroy(_enemyObject);
+        }
+    }
 }
 

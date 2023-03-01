@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyObject: {fileID: 72793368974128776}
+  _speedFolow: 0.001
   shoot: 0
 --- !u!1 &72793368974128776
 GameObject:

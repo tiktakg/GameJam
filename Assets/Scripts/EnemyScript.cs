@@ -10,15 +10,15 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private UiSrcipt _uiPanel;
     [SerializeField] public GameObject _prefabBullet;
     [SerializeField] public GameObject _spawnPointBullet;
-
+    [SerializeField] public int _helth = 10;
     [SerializeField] public float _speed = 1;
-    
+    [SerializeField] public bool _IsShootEnemy;
+
     [SerializeField] private float leftFlagPositon;
     [SerializeField] private float rightFlagPositon;
-    [SerializeField] public int _helth = 10;
 
     [SerializeField] public bool _isLeft;
-   
+
 
 
     public bool _isPatrol;
@@ -32,8 +32,8 @@ public class EnemyScript : MonoBehaviour
     }
     private void Update()
     {
-     
-        if(_helth == 0)
+
+        if (_helth == 0)
             Destroy(gameObject);
 
         if (_helth < 5 & gameObject.tag == "Player")
@@ -55,14 +55,14 @@ public class EnemyScript : MonoBehaviour
         {
             transform.position += Vector3.left * _speed * Time.deltaTime;
         }
-           
+
 
         if ((transform.localPosition.x >= rightFlagPositon) & _isLeft == true)
         {
             _isLeft = false;
             switchSight(_isLeft);
         }
-        else if((transform.localPosition.x <= leftFlagPositon) & _isLeft == false) 
+        else if ((transform.localPosition.x <= leftFlagPositon) & _isLeft == false)
         {
             _isLeft = true;
             switchSight(_isLeft);
@@ -72,8 +72,9 @@ public class EnemyScript : MonoBehaviour
     public void switchSight(bool _isLeft)
     {
         if (!_isLeft & _isLeft == true)
-            transform.Rotate(0,180 , 0);
+            transform.Rotate(0, 180, 0);
         else
             transform.Rotate(0, -180, 0);
     }
+
 }
