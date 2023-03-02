@@ -87,12 +87,16 @@ public class CheckForPlayer : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            _shotScript.enabled = true;
-            _fightWithPlayer(other, false);
+            if (other.gameObject.GetComponent<MovePlayer>()._isLife == true)
+            {
+                _playerObject = other.gameObject;
+                _shotScript.enabled = true;
+                _fightWithPlayer(other, false);
+            }
+
+
         }
-
     }
-
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -100,12 +104,10 @@ public class CheckForPlayer : MonoBehaviour
         {
             
 
-            if (collision.gameObject.GetComponent<MovePlayer>()._isLife == true )
-            {
-                _playerObject = collision.gameObject;
+                
                 _shotScript.enabled = false;
                 _fightWithPlayer(collision, true);
-            }
+
         }
     }
     private void _fightWithPlayer(Collider2D collision, bool _seePlayer)
