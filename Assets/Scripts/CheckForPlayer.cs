@@ -132,10 +132,7 @@ public class CheckForPlayer : MonoBehaviour
     {
         if (!_IsShootEnemy)
         {
-<<<<<<< HEAD
-            
-=======
->>>>>>> л
+
             if (_playerPostion < (_enemyPostion + 0.1) & !_isLeft)
                 Destroy(_enemyObject);
             else if (_playerPostion > (_enemyPostion - 0.1) & _isLeft)
