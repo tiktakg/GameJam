@@ -19,32 +19,43 @@ public class EnemyScript : MonoBehaviour
 
     [SerializeField] public bool _isLeft;
 
-
+    private bool _isLife = false;
 
     public bool _isPatrol;
     private Transform _transform;
-
+    private int _baseHealth;
 
     private void Start()
     {
+        _isLife = false;
         _transform = GetComponent<Transform>();
         _uiPanel = GameObject.FindFirstObjectByType<UiSrcipt>();
+        _baseHealth = _helth;
+
     }
-    private void Update()
+private void Update()
     {
-
-        if (_helth == 0)
-            Destroy(gameObject);
-
-        if (_helth < 5 & gameObject.tag == "Player")
-            _uiPanel.numberSpriteFolHelthBar = 1;
-        if (_helth < 2 & gameObject.tag == "Player")
-            _uiPanel.numberSpriteFolHelthBar = 2;
-        if (_helth == 0 & gameObject.tag == "Player")
+        if (_helth <= 0 & gameObject.tag == "Player")
         {
+            _uiPanel._isGameTurn =false;
             _uiPanel._iDeathTurn = true;
-            Time.timeScale = 0;
         }
+
+        if (_helth <= 0)
+        {
+            Destroy(gameObject);
+        }
+            
+
+
+        if (_helth ==  (_baseHealth * 3 / 4 ) & gameObject.tag == "Player")
+            _uiPanel.numberSpriteFolHelthBar = 1;
+        if (_helth == (_baseHealth * 2 / 4) & gameObject.tag == "Player")
+            _uiPanel.numberSpriteFolHelthBar = 2;
+        if (_helth == (_baseHealth * 1 / 4) & gameObject.tag == "Player")
+            _uiPanel.numberSpriteFolHelthBar = 3;
+
+        
             
 
         if (_isLeft & _isPatrol == true)

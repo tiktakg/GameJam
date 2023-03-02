@@ -18,19 +18,15 @@ public class UiSrcipt : MonoBehaviour
     private void Start()
     {
         TimePanel.value = TimePanel.maxValue;
-       _GamePanel.SetActive(false);
+        _GamePanel.SetActive(false);
         _DeathPanel.SetActive(false);
     }
-    private void FixedUpdate()
+    private void Update()
     {
         _helthBar.sprite = spriteForHealthBar[numberSpriteFolHelthBar];
-        _GamePanel.SetActive(_isGameTurn);
 
-        if(_iDeathTurn == true)
-        {
-            _GamePanel.SetActive(false);
-            _DeathPanel.SetActive(true);
-        }
+        _GamePanel.SetActive(_isGameTurn);
+        _DeathPanel.SetActive(_iDeathTurn);
 
     }
 }

@@ -13,21 +13,22 @@ public class MovePlayer : MonoBehaviour
     [SerializeField] private float _velcotiy = 1;
     [SerializeField] private float _jumpforse = 1;
 
-    [SerializeField] public bool _isLeft = false;
+    public bool _isLeft = false;
+    [SerializeField] public bool _isLife = false;
     
+
     private Transform _transform;
     private GameObject _enemyObject;
     
-
     private float _TimeLifeEnemy;
 
-    private bool _isLife = true;
+  
 
     private void Start()
     {
         _uiPanel = GameObject.FindFirstObjectByType<UiSrcipt>();
         _transform = GetComponent<Transform>();
-        
+
 
         _isLeft = true;
 
@@ -90,8 +91,8 @@ public class MovePlayer : MonoBehaviour
         _shotScript.enabled = true;
 
         _movePlayer._velcotiy = 5;
-
         _movePlayer._isLeft = true;
+        _movePlayer._isLife = true;
 
         if (!_isLeft)
             _enemyObject.transform.Rotate(0, 0, 0);

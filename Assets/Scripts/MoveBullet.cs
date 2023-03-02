@@ -20,7 +20,6 @@ public class MoveBullet : MonoBehaviour
     private ShotScript _shotPlayer;
     private MovePlayer _movePlayer;
 
-    private float y;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,8 +29,6 @@ public class MoveBullet : MonoBehaviour
         _movePlayer = GameObject.FindFirstObjectByType<MovePlayer>();
         isFlyRightPlayer = _movePlayer._isLeft;
        
-
-
     }
 
 

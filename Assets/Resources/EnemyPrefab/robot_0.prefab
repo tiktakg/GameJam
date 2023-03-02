@@ -73,7 +73,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyObject: {fileID: 72793368974128776}
   _speedFolow: 0.001
-  shoot: 0
+  _IsShootEnemy: 1
+  _isLeft: 1
 --- !u!1 &72793368974128776
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,12 +197,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d794d4becc4dff045919625070f29877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _uiPanel: {fileID: 166859235521593912, guid: 6d4d5471197b8004c905077017a86848, type: 3}
   _prefabBullet: {fileID: 9202159889078985479, guid: 5cddd2b4bf9b583419f243eb50f94528, type: 3}
   _spawnPointBullet: {fileID: 72793369177218404}
+  _helth: 10
   _speed: 1.18
+  _IsShootEnemy: 0
   leftFlagPositon: -45
   rightFlagPositon: -40
-  _helth: 10
   _isLeft: 1
   _isPatrol: 0
 --- !u!61 &72793368974128778
