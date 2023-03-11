@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 13b4126ce4a9e53489fee7cd9acca3e5
+guid: f200dfa84a665264e92557b09cbfa4c3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,7 +115,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ZigaMet_Vitalya_Atack_New_0
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 5
+        width: 31
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30546adaeba5ada4083dcd74921b9e4c
+      internalID: 2069871656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZigaMet_Vitalya_Atack_New_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 4
+        width: 47
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e18e92bd28717b444a83402be47f8eb6
+      internalID: 1433819422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZigaMet_Vitalya_Atack_New_2
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 5
+        width: 55
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47e7816e3e3ded94fb2677c024e51b4a
+      internalID: 2135600982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZigaMet_Vitalya_Atack_New_3
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 6
+        width: 45
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16b41f83dd8390248a7e0b5a2c5fafe5
+      internalID: -853529670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZigaMet_Vitalya_Atack_New_4
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 6
+        width: 54
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb3b5b8772cb7d74b8201d43d4ce5a6e
+      internalID: 1502303875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +231,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ZigaMet_Vitalya_Atack_New_2: 2135600982
+      ZigaMet_Vitalya_Atack_New_4: 1502303875
+      ZigaMet_Vitalya_Atack_New_3: -853529670
+      ZigaMet_Vitalya_Atack_New_1: 1433819422
+      ZigaMet_Vitalya_Atack_New_0: 2069871656
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -6,10 +6,12 @@ using UnityEngine;
 public class CheckForPlayer : MonoBehaviour
 {
 
+    [SerializeField] public Animator anim;
     [SerializeField] private GameObject _enemyObject;
     [SerializeField] private float _speedFolow;
-    [SerializeField] private bool _IsShootEnemy;
     [SerializeField] private bool _isLeft = false;
+
+    [SerializeField] private bool[] _MethodAattakEnemy;
 
     [SerializeField] private float t = 0.05f;
 
@@ -18,7 +20,8 @@ public class CheckForPlayer : MonoBehaviour
     private EnemyScript _enemyScript;
 
 
-    private bool _isSeePlayer = false;
+
+    [SerializeField]  private bool _isSeePlayer = false;
 
     private float _enemyPostion;
     private float _playerPostion;
@@ -30,9 +33,11 @@ public class CheckForPlayer : MonoBehaviour
     private void Start()
     {
         _enemyObject.gameObject.GetComponent<EnemyScript>();
+        anim = GetComponent<Animator>();
 
         _shotScript = _enemyObject.gameObject.AddComponent<ShotScript>();
         _enemyScript = _enemyObject.gameObject.GetComponent<EnemyScript>();
+
 
         _shotScript._prefabBullet = _enemyScript._prefabBullet;
         _shotScript._spawnPointBullet = _enemyScript._spawnPointBullet;
@@ -47,7 +52,7 @@ public class CheckForPlayer : MonoBehaviour
         _playerPostion = _playerObject.transform.localPosition.x;
 
         _vectorPos = new Vector3(_enemyObject.transform.localPosition.x, _enemyObject.transform.localPosition.y, _enemyObject.transform.localPosition.z);
-
+        
         _time += Time.deltaTime;
 
         if (_isSeePlayer)
@@ -63,7 +68,7 @@ public class CheckForPlayer : MonoBehaviour
                 _isLeft = false;
                 _enemyObject.gameObject.GetComponent<EnemyScript>().switchSight(_isLeft);
             }
-
+           
             _folowForPlayer();
 
             if (_enemyPostion != _playerPostion)
@@ -71,14 +76,16 @@ public class CheckForPlayer : MonoBehaviour
                 _enemyObject.transform.position = _vectorPos;
             }
 
-            if ((_time % 2) < 0.01 & _IsShootEnemy)
+            if ((_time % 2) < 0.01 & _MethodAattakEnemy[0])
             {
 
                 _shotScript.isShootPlayer = false;
                 _shotScript.ShootEnemy(!_isLeft);
             }
-            _blowUpPlayer();
 
+            mileAttack();
+            _blowUpPlayer();
+            
         }
     }
 
@@ -98,18 +105,8 @@ public class CheckForPlayer : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            
 
-                
-                _shotScript.enabled = false;
-                _fightWithPlayer(collision, true);
-
-        }
-    }
+  
     private void _fightWithPlayer(Collider2D collision, bool _seePlayer)
     {
 
@@ -128,7 +125,7 @@ public class CheckForPlayer : MonoBehaviour
 
     private void _blowUpPlayer()
     {
-        if (!_IsShootEnemy)
+        if (_MethodAattakEnemy[1])
         {
             if (_playerPostion < (_enemyPostion + t) & !_isLeft)
             {
@@ -141,6 +138,14 @@ public class CheckForPlayer : MonoBehaviour
                 _playerObject.gameObject.GetComponent<EnemyScript>()._helth = 0;
 
             }
+        }
+    }
+
+    private void mileAttack()
+    {
+        if(_MethodAattakEnemy[2])
+        {
+            _enemyScript._anim.Play("VitaliaAtakyet");
         }
     }
 }
