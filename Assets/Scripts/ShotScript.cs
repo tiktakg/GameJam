@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ShotScript : MonoBehaviour
 {
@@ -9,12 +10,20 @@ public class ShotScript : MonoBehaviour
     [SerializeField] public GameObject _spawnPointBullet;
     [SerializeField] public bool _isHaveGun = false;
 
+    private ControlAttackUi _controlAttackUi;
+
     public int _spawnBullet;
     public bool isShootPlayer = false;
 
+
+    private void Start()
+    {
+        _controlAttackUi = GameObject.FindFirstObjectByType<ControlAttackUi>();
+    }
+
     private void Update()
     {
-        if (Input.GetMouseButtonUp(0)  & isShootPlayer == true)
+        if ((Input.GetMouseButtonUp(0) | _controlAttackUi.isAttackPressed) & isShootPlayer)
         {
             ShootPlayer();
         }
@@ -35,6 +44,6 @@ public class ShotScript : MonoBehaviour
         bullet.GetComponent<MoveBullet>().isFlyRightEnemy = isLeft;
         _spawnBullet += 1;
     }
-    
+
 
 }

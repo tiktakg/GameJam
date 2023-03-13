@@ -53,7 +53,7 @@ public class MoveBullet : MonoBehaviour
         }
 
 
-        rb.AddForce(_vector);
+        rb.velocity = _vector;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

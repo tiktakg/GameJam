@@ -13,7 +13,7 @@ public class CheckForPlayer : MonoBehaviour
 
     [SerializeField] private bool[] _MethodAattakEnemy;
 
-    [SerializeField] private float t = 0.05f;
+    [SerializeField] private float _distanceToAttack = 0.05f;
 
     private GameObject _playerObject;
     private ShotScript _shotScript;
@@ -21,7 +21,7 @@ public class CheckForPlayer : MonoBehaviour
 
 
 
-    [SerializeField]  private bool _isSeePlayer = false;
+    [SerializeField] private bool _isSeePlayer = false;
 
     private float _enemyPostion;
     private float _playerPostion;
@@ -52,45 +52,24 @@ public class CheckForPlayer : MonoBehaviour
         _playerPostion = _playerObject.transform.localPosition.x;
 
         _vectorPos = new Vector3(_enemyObject.transform.localPosition.x, _enemyObject.transform.localPosition.y, _enemyObject.transform.localPosition.z);
-        
+
         _time += Time.deltaTime;
 
         if (_isSeePlayer)
         {
-            if (_enemyPostion > (_playerPostion + 0.1) & _isLeft == false)
-            {
-                _isLeft = true;
-                _enemyObject.gameObject.GetComponent<EnemyScript>().switchSight(_isLeft);
-            }
-            else if (_enemyPostion < (_playerPostion - 0.1) & _isLeft == true)
-            {
 
-                _isLeft = false;
-                _enemyObject.gameObject.GetComponent<EnemyScript>().switchSight(_isLeft);
-            }
-           
             _folowForPlayer();
+            _Attack();
 
             if (_enemyPostion != _playerPostion)
             {
                 _enemyObject.transform.position = _vectorPos;
             }
 
-            if ((_time % 2) < 0.01 & _MethodAattakEnemy[0])
-            {
-
-                _shotScript.isShootPlayer = false;
-                _shotScript.ShootEnemy(!_isLeft);
-            }
-
-            mileAttack();
-            _blowUpPlayer();
-            
         }
     }
 
-
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
@@ -100,13 +79,11 @@ public class CheckForPlayer : MonoBehaviour
                 _shotScript.enabled = true;
                 _fightWithPlayer(other, false);
             }
-
-
         }
     }
 
 
-  
+
     private void _fightWithPlayer(Collider2D collision, bool _seePlayer)
     {
 
@@ -118,35 +95,80 @@ public class CheckForPlayer : MonoBehaviour
     private void _folowForPlayer()
     {
         if (_enemyPostion >= _playerPostion)
+        {
+            Debug.Log("1");
             _vectorPos = new Vector3(_enemyPostion - _speedFolow, _enemyObject.transform.localPosition.y, _enemyObject.transform.localPosition.z);
+
+            //if(!_isLeft)
+            //{
+            //    _enemyObject.gameObject.transform.Rotate(0, -180, 0);
+            //}
+
+            //_isLeft = true;
+                
+        }
         else if (_enemyPostion <= _playerPostion)
+        {
+            Debug.Log("2");
             _vectorPos = new Vector3(_enemyPostion + _speedFolow, _enemyObject.transform.localPosition.y, _enemyObject.transform.localPosition.z);
+            //if (_isLeft)
+            //{
+            //    _enemyObject.gameObject.transform.Rotate(0, -180, 0);
+            //}
+            //_isLeft = false;
+        }
     }
 
-    private void _blowUpPlayer()
+    private void _Attack()
     {
-        if (_MethodAattakEnemy[1])
+        if (_MethodAattakEnemy[0])
         {
-            if (_playerPostion < (_enemyPostion + t) & !_isLeft)
+            if ((_time % 2) < 0.01)
+            {
+                _shotScript.isShootPlayer = false;
+                _shotScript.ShootEnemy(!_isLeft);
+            }
+        }
+        else if (_MethodAattakEnemy[1])
+        {
+            //t == 0.05
+            if (_playerPostion < (_enemyPostion + _distanceToAttack) & !_isLeft)
             {
                 Destroy(_enemyObject);
                 _playerObject.gameObject.GetComponent<EnemyScript>()._helth = 0;
             }
-            else if (_playerPostion > (_enemyPostion - t) & _isLeft)
+            else if (_playerPostion > (_enemyPostion - _distanceToAttack) & _isLeft)
             {
                 Destroy(_enemyObject);
                 _playerObject.gameObject.GetComponent<EnemyScript>()._helth = 0;
 
             }
         }
+        else if (_MethodAattakEnemy[2])
+        {
+            if (_playerPostion < (_enemyPostion + _distanceToAttack) & !_isLeft)
+            {
+                _enemyScript._anim.Play("VitaliaAtakyet");
+
+                if ((_time % 2) < 0.01)
+                    _playerObject.gameObject.GetComponent<EnemyScript>()._helth -= 1;
+            }
+            else if (_playerPostion > (_enemyPostion - _distanceToAttack) & _isLeft)
+            {
+                _enemyScript._anim.Play("VitaliaAtakyet");
+
+                if ((_time % 2) < 0.01)
+                    _playerObject.gameObject.GetComponent<EnemyScript>()._helth -= 1;
+
+
+            }
+            else
+                _enemyScript._anim.Play("VitalyBechit");
+
+        }
+
     }
 
-    private void mileAttack()
-    {
-        if(_MethodAattakEnemy[2])
-        {
-            _enemyScript._anim.Play("VitaliaAtakyet");
-        }
-    }
 }
+
 

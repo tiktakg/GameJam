@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 499f1319fcbcd0949aa979ab4fdf27b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 799.2
+  _speed: 2500
   isFlyRightPlayer: 1
   isFlyRightEnemy: 1
   isShootPlayer: 0
