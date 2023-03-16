@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Transform))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(BoxCollider2D))]
 
 public class MoveBullet : MonoBehaviour
 {
