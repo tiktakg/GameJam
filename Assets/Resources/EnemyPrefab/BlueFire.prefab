@@ -258,11 +258,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d794d4becc4dff045919625070f29877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabBullet: {fileID: 0}
+  _prefabBullet: {fileID: 8181488539720436426, guid: a8a2e2a9d730bb04fad6715c2c68707b, type: 3}
   _spawnPointBullet: {fileID: 1565970288881701961}
   _helth: 10
   _speed: 1
-  _IsShootEnemy: 0
+  _IsShootEnemy: 1
   leftFlagPositon: 0
   rightFlagPositon: 0
   _isLeft: 0

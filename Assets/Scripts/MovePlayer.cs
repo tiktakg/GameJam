@@ -9,6 +9,8 @@ using UnityEngine.UIElements;
 public class MovePlayer : MonoBehaviour
 {
     [SerializeField] private UiGameSrcipt _uiPanel;
+    [SerializeField] private ControlTakeUi _controlButton;
+
 
 
     [SerializeField] private float _velcotiy = 1;

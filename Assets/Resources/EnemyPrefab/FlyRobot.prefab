@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d794d4becc4dff045919625070f29877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabBullet: {fileID: 9202159889078985479, guid: 5cddd2b4bf9b583419f243eb50f94528, type: 3}
+  _prefabBullet: {fileID: 5653001515861756146, guid: e9d346532b0b716459bdbe780a44a886, type: 3}
   _spawnPointBullet: {fileID: 6241215842070666071}
   _helth: 10
   _speed: 2
