@@ -96,7 +96,7 @@ public class CheckForPlayer : MonoBehaviour
     {
         if (_enemyPostion >= _playerPostion)
         {
-            Debug.Log("1");
+           
             _vectorPos = new Vector3(_enemyPostion - _speedFolow, _enemyObject.transform.localPosition.y, _enemyObject.transform.localPosition.z);
 
             //if(!_isLeft)
@@ -109,7 +109,7 @@ public class CheckForPlayer : MonoBehaviour
         }
         else if (_enemyPostion <= _playerPostion)
         {
-            Debug.Log("2");
+
             _vectorPos = new Vector3(_enemyPostion + _speedFolow, _enemyObject.transform.localPosition.y, _enemyObject.transform.localPosition.z);
             //if (_isLeft)
             //{

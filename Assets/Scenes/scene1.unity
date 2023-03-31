@@ -54014,7 +54014,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1565970289531388290, guid: 993b1ce478cb16143995659e363cf9d8, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1565970289531388290, guid: 993b1ce478cb16143995659e363cf9d8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63368,6 +63368,67 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTakePressed: 0
+--- !u!1001 &750841844
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6241215841726853089, guid: 038579bcf85c26148b0e399a2b0eeee8, type: 3}
+      propertyPath: m_Name
+      value: FlyRobot (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241215841726853099, guid: 038579bcf85c26148b0e399a2b0eeee8, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241215841726853099, guid: 038579bcf85c26148b0e399a2b0eeee8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241215841726853099, guid: 038579bcf85c26148b0e399a2b0eeee8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -52.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241215841726853099, guid: 038579bcf85c26148b0e399a2b0eeee8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241215841726853099, guid: 038579bcf85c26148b0e399a2b0eeee8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241215841726853099, guid: 038579bcf85c26148b0e399a2b0eeee8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241215841726853099, guid: 038579bcf85c26148b0e399a2b0eeee8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241215841726853099, guid: 038579bcf85c26148b0e399a2b0eeee8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241215841726853099, guid: 038579bcf85c26148b0e399a2b0eeee8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241215841726853099, guid: 038579bcf85c26148b0e399a2b0eeee8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241215841726853099, guid: 038579bcf85c26148b0e399a2b0eeee8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241215841726853099, guid: 038579bcf85c26148b0e399a2b0eeee8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 038579bcf85c26148b0e399a2b0eeee8, type: 3}
 --- !u!1001 &1045455133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63381,7 +63442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6241215841726853099, guid: 038579bcf85c26148b0e399a2b0eeee8, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6241215841726853099, guid: 038579bcf85c26148b0e399a2b0eeee8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63470,7 +63531,7 @@ Transform:
   - {fileID: 40811156}
   - {fileID: 651664007}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &1053379591
 Tilemap:
@@ -63539,7 +63600,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1092042981
 GameObject:
@@ -63607,7 +63668,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!213 &1265748435
 Sprite:
@@ -63840,7 +63901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3301323446713856012, guid: 9a58a8eacd6652943b7a9dd3db142e65, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3301323446713856012, guid: 9a58a8eacd6652943b7a9dd3db142e65, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63897,7 +63958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3692297932661128339, guid: f9d2ef4579f04c44ab9d88f440d134d1, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3692297932661128339, guid: f9d2ef4579f04c44ab9d88f440d134d1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63959,250 +64020,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAttackPressed: 0
---- !u!213 &1589616255
-Sprite:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!1 &1617901446 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3692297932661128338, guid: f9d2ef4579f04c44ab9d88f440d134d1, type: 3}
+  m_PrefabInstance: {fileID: 1362386727}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_Rect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 4
-    height: 4
-  m_Offset: {x: 0, y: 0}
-  m_Border: {x: 0, y: 0, z: 0, w: 0}
-  m_PixelsToUnits: 4
-  m_Pivot: {x: 0.5, y: 0.5}
-  m_Extrude: 0
-  m_IsPolygon: 0
-  m_AtlasName: 
-  m_PackingTag: 
-  m_RenderDataKey:
-    00000000000000000000000000000000: 0
-  m_AtlasTags: []
-  m_SpriteAtlas: {fileID: 0}
-  m_RD:
-    serializedVersion: 3
-    texture: {fileID: 0}
-    alphaTexture: {fileID: 0}
-    secondaryTextures: []
-    m_SubMeshes:
-    - serializedVersion: 2
-      firstByte: 0
-      indexCount: 6
-      topology: 0
-      baseVertex: 0
-      firstVertex: 0
-      vertexCount: 4
-      localAABB:
-        m_Center: {x: 0, y: 0, z: 0}
-        m_Extent: {x: 0, y: 0, z: 0}
-    m_IndexBuffer: 000001000200020001000300
-    m_VertexData:
-      serializedVersion: 3
-      m_VertexCount: 4
-      m_Channels:
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 3
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 1
-        offset: 0
-        format: 0
-        dimension: 2
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
-    m_Bindpose: []
-    textureRect:
-      serializedVersion: 2
-      x: 0
-      y: 0
-      width: 4
-      height: 4
-    textureRectOffset: {x: 0, y: 0}
-    atlasRectOffset: {x: -1, y: -1}
-    settingsRaw: 64
-    uvTransform: {x: 4, y: 2, z: 4, w: 2}
-    downscaleMultiplier: 1
-  m_AtlasRD:
-    serializedVersion: 3
-    texture: {fileID: 0}
-    alphaTexture: {fileID: 0}
-    secondaryTextures: []
-    m_SubMeshes:
-    - serializedVersion: 2
-      firstByte: 0
-      indexCount: 6
-      topology: 0
-      baseVertex: 0
-      firstVertex: 0
-      vertexCount: 4
-      localAABB:
-        m_Center: {x: 0, y: 0, z: 0}
-        m_Extent: {x: 0, y: 0, z: 0}
-    m_IndexBuffer: 000001000200020001000300
-    m_VertexData:
-      serializedVersion: 3
-      m_VertexCount: 4
-      m_Channels:
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 3
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 1
-        offset: 0
-        format: 0
-        dimension: 2
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
-    m_Bindpose: []
-    textureRect:
-      serializedVersion: 2
-      x: 0
-      y: 0
-      width: 4
-      height: 4
-    textureRectOffset: {x: 0, y: 0}
-    atlasRectOffset: {x: -1, y: -1}
-    settingsRaw: 64
-    uvTransform: {x: 4, y: 2, z: 4, w: 2}
-    downscaleMultiplier: 1
-  m_PhysicsShape: []
-  m_Bones: []
-  m_SpriteID: 
---- !u!114 &2012807002
+--- !u!114 &1617901451
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1617901446}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
+  m_Script: {fileID: 11500000, guid: 9e56caa7b77573a4da6540c7bb26c29f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 1265748435}
-  m_Color: {r: 0.84697354, g: 0.5916504, b: 0.637195, a: 1}
-  m_Transform:
-    e00: 1
-    e01: 0
-    e02: 0
-    e03: 0
-    e10: 0
-    e11: 1
-    e12: 0
-    e13: 0
-    e20: 0
-    e21: 0
-    e22: 1
-    e23: 0
-    e30: 0
-    e31: 0
-    e32: 0
-    e33: 1
-  m_InstancedGameObject: {fileID: 0}
-  m_Flags: 3
-  m_ColliderType: 1
 --- !u!1001 &175383117516787026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64216,11 +64050,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 338939943061525144, guid: b5c1c3566b4d1b1458319b71b88d010a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -51.758
+      value: -53.41
       objectReference: {fileID: 0}
     - target: {fileID: 338939943061525144, guid: b5c1c3566b4d1b1458319b71b88d010a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.285
+      value: 11.25
       objectReference: {fileID: 0}
     - target: {fileID: 338939943061525144, guid: b5c1c3566b4d1b1458319b71b88d010a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -64346,7 +64180,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5319582752710757851, guid: ab4f10785b70bc94db25ac2b19fd7fe4, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5319582752710757851, guid: ab4f10785b70bc94db25ac2b19fd7fe4, type: 3}
       propertyPath: m_LocalPosition.x

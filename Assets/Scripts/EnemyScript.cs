@@ -61,26 +61,7 @@ public class EnemyScript : MonoBehaviour
 
 
 
-        //if (_isLeft & _isPatrol == true)
-        //{
-        //    transform.position -= Vector3.left * _speed * Time.deltaTime;
-        //}
-        //else if (!_isLeft & _isPatrol == true)
-        //{
-        //    transform.position += Vector3.left * _speed * Time.deltaTime;
-        //}
-
-        //if ((transform.localPosition.x >= rightFlagPositon) & _isLeft == true)
-        //{
-        //    _isLeft = false;
-
-        //    switchSight(_isLeft);
-        //}
-        //else if ((transform.localPosition.x <= leftFlagPositon) & _isLeft == false)
-        //{
-        //    _isLeft = true;
-        //    switchSight(_isLeft);
-        //}
+        
     }
 
     public void switchSight(bool _isLeft)
