@@ -8,9 +8,10 @@ public class ControlTakeUi : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     public bool isTakePressed = false;
 
+
     public void OnPointerDown(PointerEventData eventData)
     {
-        isTakePressed = true;
+        isTakePressed =  true;
     }
 
     public void OnPointerUp(PointerEventData eventData) 

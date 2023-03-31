@@ -1,29 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
+[RequireComponent(typeof(TextMeshPro))]
 public class ControlSript : MonoBehaviour
 {
-    private int count;
+    private TMP_Text text; 
+
     void Start()
     {
-        GameObject[] enemyGameObject = GameObject.FindObjectsOfType<GameObject>();
-
-
-        foreach (GameObject obj in enemyGameObject)
-        {
-            if (obj.tag == "Enemy")
-            {
-                count++;
-            }
-        }
-
+        text = GetComponent<TMP_Text>();
     }
 
 
     void Update()
     {
-
+        text.text = TakeCountEnemy().ToString();
         if (TakeCountEnemy() == 0)
         {
             Destroy(gameObject);

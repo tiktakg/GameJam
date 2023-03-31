@@ -9,7 +9,6 @@ using UnityEngine.UIElements;
 public class MovePlayer : MonoBehaviour
 {
     [SerializeField] private UiGameSrcipt _uiPanel;
-    [SerializeField] private ControlTakeUi _controlButton;
 
 
 
@@ -18,9 +17,9 @@ public class MovePlayer : MonoBehaviour
     [SerializeField] public bool _isLife = false;
 
     public bool _isLeft = false;
-    
 
-    private ControlTakeUi _ControlUi;
+
+    [SerializeField]  private ControlTakeUi _ControlUi;
     private Joystick _joystick;
     private Transform _transform;
     private GameObject _enemyObject;
@@ -33,12 +32,11 @@ public class MovePlayer : MonoBehaviour
     {
         _uiPanel = GameObject.FindFirstObjectByType<UiGameSrcipt>();
         _joystick = GameObject.FindFirstObjectByType<Joystick>();
-        _ControlUi = GameObject.FindFirstObjectByType<ControlTakeUi>();
+        _ControlUi = FindFirstObjectByType<ControlTakeUi>();
         _transform = GetComponent<Transform>();
 
 
     }
-
 
     private void FixedUpdate()
     {
@@ -77,6 +75,10 @@ public class MovePlayer : MonoBehaviour
         if (other.tag == "Enemy" & (Input.GetKey(KeyCode.E) | _ControlUi.isTakePressed) & !_isLife)
         {
               setNewPlayer(other);
+        }
+        else if (other.tag == "Enemy" & _ControlUi.isTakePressed & !_isLife)
+        {
+            setNewPlayer(other);
         }
     }
 
