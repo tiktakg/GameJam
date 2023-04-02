@@ -100,10 +100,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiPanel: {fileID: 166859235521593912, guid: 6d4d5471197b8004c905077017a86848, type: 3}
-  _velcotiy: 1
+  _velcotiy: 2
   _jumpforse: 8
-  _isLeft: 0
   _isLife: 0
+  _isLeft: 0
+  _ControlUi: {fileID: 0}
 --- !u!61 &3301323446713856000
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -106,6 +106,8 @@ public class MovePlayer : MonoBehaviour
         _movePlayer._isLife = true;
         _movePlayer._isLeft = true;
 
+        enemyScript._isLeft = 3;
+
         if (!_isLeft)
             _enemyObject.transform.Rotate(0, 0, 0);
         else if (_isLeft)

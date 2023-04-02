@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5fa0bdcded7970f428c20364f82a88b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -147,7 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d794d4becc4dff045919625070f29877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uiPanel: {fileID: 0}
   _prefabBullet: {fileID: 0}
   _spawnPointBullet: {fileID: 0}
   _helth: 5
@@ -156,6 +155,7 @@ MonoBehaviour:
   leftFlagPositon: 0
   rightFlagPositon: 0
   _isLeft: 0
+  _anim: {fileID: 0}
   _isPatrol: 0
 --- !u!1 &950493791042685685
 GameObject:
@@ -228,8 +228,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 147116831b0869c47846e537554b00fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   _enemyObject: {fileID: 950493790483924448}
   _speedFolow: 0.005
-  _IsShootEnemy: 0
   _isLeft: 0
-  t: 0.6
+  _MethodAattakEnemy: 000100
+  _distanceToAttack: 0.05
+  _isSeePlayer: 0
