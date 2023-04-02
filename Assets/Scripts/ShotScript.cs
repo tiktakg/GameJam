@@ -14,6 +14,7 @@ public class ShotScript : MonoBehaviour
 
     public int _spawnBullet;
     public bool isShootPlayer = false;
+    public bool isShootEnemy = false;
 
 
     private void Start()
@@ -42,6 +43,7 @@ public class ShotScript : MonoBehaviour
         GameObject bullet = Instantiate(_prefabBullet, new Vector3(_spawnPointBullet.transform.position.x, _spawnPointBullet.transform.position.y, 0), Quaternion.identity);
         bullet.GetComponent<MoveBullet>().isShootPlayer = false;
         bullet.GetComponent<MoveBullet>().isFlyRightEnemy = isLeft;
+        bullet.GetComponent<MoveBullet>().isShootEnemy = true;
         _spawnBullet += 1;
     }
 

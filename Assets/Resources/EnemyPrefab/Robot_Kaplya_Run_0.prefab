@@ -156,7 +156,7 @@ MonoBehaviour:
   _IsShootEnemy: 1
   leftFlagPositon: 0
   rightFlagPositon: 0
-  _isLeft: 0
+  _isLeft: 2
   _anim: {fileID: 0}
   _isPatrol: 0
 --- !u!95 &5319582752710757854

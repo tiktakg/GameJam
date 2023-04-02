@@ -26,6 +26,7 @@ public class CheckForPlayer : MonoBehaviour
     private float _enemyPostion;
     private float _playerPostion;
     private float _time;
+    private int I = 0;
 
 
     private Vector3 _vectorPos = new Vector3();
@@ -51,7 +52,7 @@ public class CheckForPlayer : MonoBehaviour
         _enemyPostion = _enemyObject.transform.localPosition.x;
         _playerPostion = _playerObject.transform.localPosition.x;
 
-        _vectorPos = new Vector3(_enemyObject.transform.localPosition.x, _enemyObject.transform.localPosition.y, _enemyObject.transform.localPosition.z);
+       
 
         _time += Time.deltaTime;
 
@@ -61,10 +62,7 @@ public class CheckForPlayer : MonoBehaviour
             _folowForPlayer();
             _Attack();
 
-            if (_enemyPostion != _playerPostion)
-            {
-                _enemyObject.transform.position = _vectorPos;
-            }
+
 
         }
     }
@@ -82,8 +80,6 @@ public class CheckForPlayer : MonoBehaviour
         }
     }
 
-
-
     private void _fightWithPlayer(Collider2D collision, bool _seePlayer)
     {
 
@@ -96,26 +92,15 @@ public class CheckForPlayer : MonoBehaviour
     {
         if (_enemyPostion >= _playerPostion)
         {
-           
-            _vectorPos = new Vector3(_enemyPostion - _speedFolow, _enemyObject.transform.localPosition.y, _enemyObject.transform.localPosition.z);
+            Debug.Log("Left");
+            _enemyScript._isLeft = 0;
 
-            //if(!_isLeft)
-            //{
-            //    _enemyObject.gameObject.transform.Rotate(0, -180, 0);
-            //}
-
-            //_isLeft = true;
-                
         }
         else if (_enemyPostion <= _playerPostion)
         {
+            Debug.Log("right");
 
-            _vectorPos = new Vector3(_enemyPostion + _speedFolow, _enemyObject.transform.localPosition.y, _enemyObject.transform.localPosition.z);
-            //if (_isLeft)
-            //{
-            //    _enemyObject.gameObject.transform.Rotate(0, -180, 0);
-            //}
-            //_isLeft = false;
+            _enemyScript._isLeft = 1;
         }
     }
 
@@ -126,12 +111,13 @@ public class CheckForPlayer : MonoBehaviour
             if ((_time % 2) < 0.01)
             {
                 _shotScript.isShootPlayer = false;
+                _shotScript.isShootEnemy = true;
                 _shotScript.ShootEnemy(!_isLeft);
             }
         }
         else if (_MethodAattakEnemy[1])
         {
-            //t == 0.05
+
             if (_playerPostion < (_enemyPostion + _distanceToAttack) & !_isLeft)
             {
                 Destroy(_enemyObject);

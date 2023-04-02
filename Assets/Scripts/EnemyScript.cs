@@ -16,7 +16,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private float leftFlagPositon;
     [SerializeField] private float rightFlagPositon;
 
-    [SerializeField] public bool _isLeft;
+    [SerializeField] public int _isLeft;
 
     public Animator _anim;
 
@@ -52,25 +52,36 @@ public class EnemyScript : MonoBehaviour
 
 
 
-        if (_helth == (_baseHealth * 3 / 4) & gameObject.tag == "Player")
+        if (_helth <= (_baseHealth * 3 / 4) & gameObject.tag == "Player")
             _uiPanel.numberSpriteFolHelthBar = 1;
-        if (_helth == (_baseHealth * 2 / 4) & gameObject.tag == "Player")
+        if (_helth <= (_baseHealth * 2 / 4) & gameObject.tag == "Player")
             _uiPanel.numberSpriteFolHelthBar = 2;
-        if (_helth == (_baseHealth * 1 / 4) & gameObject.tag == "Player")
+        if (_helth <= (_baseHealth * 1 / 4) & gameObject.tag == "Player")
             _uiPanel.numberSpriteFolHelthBar = 3;
 
 
 
-        
+        if (_isLeft == 0)
+        {
+            transform.position += Vector3.left * _speed * Time.deltaTime;
+
+            if(transform.localEulerAngles !=  new Vector3(0, -180, 0))
+            {
+                transform.Rotate(0,0, 0);
+            }
+          
+        }
+        else if (_isLeft == 1)
+        {
+            transform.position -= Vector3.left * _speed * Time.deltaTime;
+
+            if ((transform.localEulerAngles != new Vector3(0, 0, 0) ))
+            {
+                transform.Rotate(0, -180, 0);
+            }
+        }
     }
 
-    public void switchSight(bool _isLeft)
-    {
-        //if (_isLeft)
-        //    transform.Rotate(0, 180, 0);
-        //else
-        //    transform.Rotate(0, -180, 0);
-    }
 
 
 }
