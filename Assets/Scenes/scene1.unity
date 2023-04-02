@@ -69636,6 +69636,10 @@ PrefabInstance:
       propertyPath: _joystick
       value: 
       objectReference: {fileID: 117781782}
+    - target: {fileID: 3301323446713856002, guid: 9a58a8eacd6652943b7a9dd3db142e65, type: 3}
+      propertyPath: _TimeLifeEnemy
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 3301323446713856007, guid: 9a58a8eacd6652943b7a9dd3db142e65, type: 3}
       propertyPath: m_Name
       value: Player
@@ -70321,6 +70325,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7176288293458900282, guid: 0f51b543ed27cbe43ad132aec893d11d, type: 3}
+      propertyPath: m_MinValue
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7176288293624350862, guid: 0f51b543ed27cbe43ad132aec893d11d, type: 3}
       propertyPath: m_Name
       value: Canvas (2)
@@ -70331,6 +70339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7176288292317767650, guid: 0f51b543ed27cbe43ad132aec893d11d, type: 3}
+    - {fileID: 7176288293458900287, guid: 0f51b543ed27cbe43ad132aec893d11d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0f51b543ed27cbe43ad132aec893d11d, type: 3}
 --- !u!1001 &7696108904346619639
 PrefabInstance:

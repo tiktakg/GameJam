@@ -52,7 +52,7 @@ public class CheckForPlayer : MonoBehaviour
         _enemyPostion = _enemyObject.transform.localPosition.x;
         _playerPostion = _playerObject.transform.localPosition.x;
 
-        //  _vectorPos = new Vector3(_enemyObject.transform.localPosition.x, _enemyObject.transform.localPosition.y, _enemyObject.transform.localPosition.z);
+       
 
         _time += Time.deltaTime;
 
@@ -62,10 +62,7 @@ public class CheckForPlayer : MonoBehaviour
             _folowForPlayer();
             _Attack();
 
-            if (_enemyPostion != _playerPostion)
-            {
-                // _enemyObject.transform.position = _vectorPos;
-            }
+
 
         }
     }
@@ -114,6 +111,7 @@ public class CheckForPlayer : MonoBehaviour
             if ((_time % 2) < 0.01)
             {
                 _shotScript.isShootPlayer = false;
+                _shotScript.isShootEnemy = true;
                 _shotScript.ShootEnemy(!_isLeft);
             }
         }

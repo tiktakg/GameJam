@@ -17,7 +17,6 @@ public class UiGameSrcipt : MonoBehaviour
     public int numberSpriteFolHelthBar;
     private void Start()
     {
-        TimePanel.value = TimePanel.maxValue;
         _GamePanel.SetActive(false);
         _DeathPanel.SetActive(false);
     }

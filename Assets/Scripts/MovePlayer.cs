@@ -20,12 +20,14 @@ public class MovePlayer : MonoBehaviour
 
 
     [SerializeField]  private ControlTakeUi _ControlUi;
+    [SerializeField] private float _TimeLifeEnemy;
+
     private Joystick _joystick;
     private Transform _transform;
     private GameObject _enemyObject;
 
     private int t;
-    private float _TimeLifeEnemy;
+
 
 
     private void Start()
@@ -34,7 +36,7 @@ public class MovePlayer : MonoBehaviour
         _joystick = GameObject.FindFirstObjectByType<Joystick>();
         _ControlUi = FindFirstObjectByType<ControlTakeUi>();
         _transform = GetComponent<Transform>();
-
+      
 
     }
 
@@ -47,7 +49,7 @@ public class MovePlayer : MonoBehaviour
 
         if (_uiPanel._isGameTurn == true)
         {
-            _uiPanel.TimePanel.value -= Time.deltaTime;
+           _uiPanel.TimePanel.value -= Time.deltaTime;
         }
 
 
@@ -105,19 +107,19 @@ public class MovePlayer : MonoBehaviour
         _movePlayer._velcotiy = 5;
         _movePlayer._isLife = true;
         _movePlayer._isLeft = true;
-
+       
         enemyScript._isLeft = 3;
 
-        if (!_isLeft)
-            _enemyObject.transform.Rotate(0, 0, 0);
-        else if (_isLeft)
-            _enemyObject.transform.Rotate(0, -180, 0);
+
+        _uiPanel.TimePanel.maxValue = 25;
+        _uiPanel.TimePanel.minValue = 0;
+        _uiPanel.TimePanel.value = 25;
 
         _enemyObject.tag = "Player";
 
 
         _uiPanel._isGameTurn = true;
-        _TimeLifeEnemy = 10f;
+        
     }
     private void MovePlayere()
     {

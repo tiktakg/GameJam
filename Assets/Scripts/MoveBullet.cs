@@ -14,7 +14,8 @@ public class MoveBullet : MonoBehaviour
 
     public bool isFlyRightPlayer = true;
     public bool isFlyRightEnemy = true;
-    public bool isShootPlayer;
+    [SerializeField] public bool isShootPlayer;
+    [SerializeField] public bool isShootEnemy;
 
     public Rigidbody2D rb;
   
@@ -60,25 +61,35 @@ public class MoveBullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
+        
         if (collision.tag == "Ground")
         {
             Destroy(gameObject);
             _shotPlayer._spawnBullet -= 1;
         }
 
-        if (collision.tag == "Enemy" | collision.tag == "Player")
+        if ((collision.tag == "Enemy" & isShootPlayer))
         {
             Destroy(gameObject);
             _shotPlayer._spawnBullet -= 1;
 
-            if(isShootPlayer)
-                collision.gameObject.GetComponent<EnemyScript>()._helth--;
-            else if(collision.tag == "Player")
-            { 
-                collision.gameObject.GetComponent<EnemyScript>()._helth--;
-                
-            }
+            collision.gameObject.GetComponent<EnemyScript>()._helth--;
+           
         }
+        else if(collision.tag == "Player" &  !isShootPlayer)
+        {
+            Destroy(gameObject);
+            _shotPlayer._spawnBullet -= 1;
+            collision.gameObject.GetComponent<EnemyScript>()._helth--;
+        }
+        else if (collision.tag == "Player" & isShootEnemy)
+        {
+            Destroy(gameObject);
+            _shotPlayer._spawnBullet -= 1;
+            collision.gameObject.GetComponent<EnemyScript>()._helth--;
+        }
+
+
 
     }
 

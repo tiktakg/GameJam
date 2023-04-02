@@ -7,14 +7,29 @@ public class ControlAttackUi : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 {
 
     public bool isAttackPressed = false;
+    private float _time = 5;
+
+    private void Update()
+    {
+        if(isAttackPressed)
+        {
+            _time -= Time.deltaTime;    
+        }
+        isAttackPressed = false;
+    }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        isAttackPressed = true;
+        if(_time >= 5) 
+        {
+            isAttackPressed = true;
+        }
+       
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         isAttackPressed = false;
+        _time = 5;
     }
 }
